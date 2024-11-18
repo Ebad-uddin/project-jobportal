@@ -46,7 +46,7 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" placeholder="Enter Category Name" id="name" name="name" aria-describedby="nameHelp">
-                <!-- <div id="nameHelp" class="form-text">Please enter category name.</div> -->
+           
             </div>
             <div class="mb-3">
               <div class="form-floating">
@@ -56,7 +56,7 @@
             <div class="mb-3">
                 <label for="icon" class="form-label">Icon</label>
                 <input type="file" class="form-control" id="icon"  name="icon" aria-describedby="iconHelp">
-                <!-- <div id="iconHelp" class="form-text">Please enter category icon.</div> -->
+                
             </div>
           </div>
           <div class="modal-footer">
@@ -67,3 +67,5 @@
     </div>
   </div>
 </div>
+
+<!-- edit category -->

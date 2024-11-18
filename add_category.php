@@ -13,16 +13,16 @@ if(isset($_POST['submit'])){
 
     move_uploaded_file($tmp_name,'uploads/' . $file_name);
 
-    $query = "INSERT INTO `category` ( `name`, `icon`, `description`) VALUES ( '$name', '$description', '$file_name')";
+    $query = "INSERT INTO `category` ( `name`, `icon`, `description`) VALUES ('$name','$file_name', '$description')";
 
     $connection_query = mysqli_query($connection, $query);
 
     if($connection_query){
         echo "<script>
         alert('Category Added Successfully');
-        <script>
-        window.location.href = 'category.php';
+        </script>;
         ";
+        header("location:category.php");
 
     }
 
