@@ -122,8 +122,8 @@ include('includes/navbar.php');
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Category</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form action="update_category.php" method="POST" enctype="multipart/form-data">
+            <div class="modal-body" id="modal_body">
+                <!-- <form action="update_category.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" placeholder="Enter Category Name" id="name" name="name"
@@ -146,7 +146,7 @@ include('includes/navbar.php');
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="submit">Edit</button>
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
 
@@ -165,8 +165,18 @@ include('includes/navbar.php');
 
     <script>
         function Edit_category(id) {
-            console.log(id)
             $('#edit_category_modal').modal('show')
+            $.ajax({
+                url : "edit_category.php",
+                method : "POST",
+                data : {
+                    id : id
+                },
+                success : function(res){
+                    console.log(res);
+                    $('#modal_body').append(res);
+                }
+            })
         }
     </script>
 
