@@ -54,12 +54,12 @@ include('includes/navbar.php');
                 $connect_query = mysqli_query($connection, $query);
 
                 if (mysqli_num_rows($connect_query) > 0) {
-
+                    $counter = 1;
                     while ($row = mysqli_fetch_assoc($connect_query)) {
 
                         ?>
                         <tr>
-                            <td><?php echo $row['id'] ?></td>
+                            <td><?php echo $counter ?></td>
                             <td><?php echo $row['name'] ?></td>
                             <td><img height="50px" width="50px" src="<?php echo 'uploads/' . $row['icon'] ?>" alt="icon"></td>
                             <td><?php echo $row['description'] ?></td>
@@ -81,7 +81,7 @@ include('includes/navbar.php');
                                         </g>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a href="#" onclick="Delete_category(<?php echo $row['id'] ?>)">
                                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -104,8 +104,8 @@ include('includes/navbar.php');
                                 </a>
                             </td>
                         </tr>
-
                         <?php
+                        $counter++;
                     }
                 }
                 ?>
@@ -115,6 +115,8 @@ include('includes/navbar.php');
     </div>
 </div>
 
+
+<!-- edit category modal -->
 <div class="modal fade" id="edit_category_modal" tabindex="-1" aria-labelledby="exampleModalLabel"          aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -123,30 +125,30 @@ include('includes/navbar.php');
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal_body">
-                <!-- <form action="update_category.php" method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Category Name" id="name" name="name"
-                            aria-describedby="nameHelp">
+             
+               
+            </div>
+        </div>
 
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Enter Description" id="floatingTextarea2"
-                                style="height: 100px" name="description"></textarea>
-                            <label for="floatingTextarea2">Description</label>
-                        </div>
-                        <div class="mb-3">
-                            <label for="icon" class="form-label">Icon</label>
-                            <input type="file" class="form-control" id="icon" name="icon" aria-describedby="iconHelp">
+    </div>
+</div>
 
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit">Edit</button>
-                    </div>
-                </form> -->
+<!-- delete category modal -->
+
+<div class="modal fade" id="delete_category_modal" tabindex="-1" aria-labelledby="exampleModalLabel"          aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-8">
+                    <p>Are You Sure you want to delete this record?</p>
+                </div>
+            </div>
+            <div class="modal-body" id="del_modal_body">
+               
             </div>
         </div>
 
@@ -175,6 +177,20 @@ include('includes/navbar.php');
                 success : function(res){
                     console.log(res);
                     $('#modal_body').append(res);
+                }
+            })
+        }
+        function Delete_category(id) {
+            $('#delete_category_modal').modal('show')
+            $.ajax({
+                url : "del_category.php",
+                method : "POST",
+                data : {
+                    id : id
+                },
+                success : function(res){
+                    console.log(res);
+                    $('#del_modal_body').append(res);
                 }
             })
         }

@@ -1,3 +1,17 @@
+<?php
+session_start();
+// print_r($_SESSION['id']); die;
+if(!isset($_SESSION['id'])){
+  // header('login.php');
+  echo '<script>
+  window.location.href = "login.php"
+  </script>';
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -38,7 +38,7 @@
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="components/category.php">
+                      <a href="category.php">
                         <span class="sub-item">Category</span>
                       </a>
                     </li>

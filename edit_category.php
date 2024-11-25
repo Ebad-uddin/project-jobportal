@@ -16,6 +16,9 @@ if(isset($_POST['id'])){
                             <label for="name" class="form-label">Name</label>
                             <input type="text" value="' . $row ['name'] . '" class="form-control" placeholder="Enter Category Name" id="name" name="name"
                                 aria-describedby="nameHelp">
+                            <input type="hidden" value="' . $row ['id'] . '" class="form-control" placeholder="Enter Category Name" id="category_id" name="category_id"
+                                aria-describedby="nameHelp">
+                                
 
                         </div>
                         <div class="mb-3">
