@@ -43,8 +43,8 @@
                       </a>
                     </li>
                     <li>
-                      <a href="components/buttons.html">
-                        <span class="sub-item">Buttons</span>
+                      <a href="jobs.php">
+                        <span class="sub-item">Jobs</span>
                       </a>
                     </li>
                     <li>

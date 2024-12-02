@@ -4,8 +4,6 @@ include('includes/header.php');
 ?>
 <!-- header end -->
 
-
-
       <!-- start Sidebar -->
        <?php
        include('includes/sidebar.php');
