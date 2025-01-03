@@ -8,13 +8,14 @@ include('config.php');
 if(isset($_POST['submit'])){
     $id = $_POST['company_id'];
     $name = $_POST['name'];
+    $email = $_POST['email'];
     $description = $_POST['description'];
     $status = $_POST['status'];
     $image_name = $_FILES['logo']['name'];
     $tmp_name = $_FILES['logo']['tmp_name'];
 
     move_uploaded_file($tmp_name, 'uploads/' . $image_name);
-    $query = "UPDATE `company` SET `name` = '$name', `description` = '$description', `logo` = '$image_name' , `status` = '$status' WHERE `id` = '$id'";
+    $query = "UPDATE `company` SET `name` = '$name', `email` = '$email', `description` = '$description', `logo` = '$image_name' , `status` = '$status' WHERE `id` = '$id'";
 
     $result = mysqli_query($connection, $query);
     if($result){

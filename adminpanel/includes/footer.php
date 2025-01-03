@@ -84,7 +84,11 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" placeholder="Enter Category Name" id="name" name="name"
               aria-describedby="nameHelp">
-
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="Enter Category Email" id="email" name="email"
+              aria-describedby="nameHelp">
           </div>
           <div class="mb-3">
             <div class="form-floating">

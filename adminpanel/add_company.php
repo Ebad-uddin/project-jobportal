@@ -7,6 +7,7 @@ include('config.php');
 if(isset($_POST['submit'])){
 
     $name = $_POST['name'];
+    $email = $_POST['email'];
     $description = $_POST['description'];
     $status = $_POST['status'];
     $file_name = $_FILES['logo']['name'];
@@ -14,7 +15,7 @@ if(isset($_POST['submit'])){
 
     move_uploaded_file($tmp_name,'uploads/' . $file_name);
 
-    $query = "INSERT INTO `company` ( `name`, `logo`, `description`, `status`) VALUES ('$name','$file_name', '$description', '$status')";
+    $query = "INSERT INTO `company` ( `name`,`email` `logo`, `description`, `status`) VALUES ('$name', '$email','$file_name', '$description', '$status')";
 
     $connection_query = mysqli_query($connection, $query);
 

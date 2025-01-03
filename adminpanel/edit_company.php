@@ -19,6 +19,10 @@ if(isset($_POST['id'])){
                     <input type="hidden" value="' . $row['id'] . '" class="form-control" id="company_id" name="company_id" aria-describedby="nameHelp">
                 </div>
                 <div class="mb-3">
+                    <label for="name" class="form-label">Email</label>
+                    <input type="text" value="' . $row['email'] . '" class="form-control" placeholder="Enter company email" id="email" name="email" aria-describedby="nameHelp">
+                </div>
+                <div class="mb-3">
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Enter Description" id="floatingTextarea2" style="height: 100px" name="description">' . $row['description'] . '</textarea>
                         <label for="floatingTextarea2">Description</label>

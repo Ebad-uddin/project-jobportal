@@ -34,6 +34,7 @@ include('includes/navbar.php');
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Icons</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -62,6 +63,7 @@ include('includes/navbar.php');
                         <tr>
                             <td><?php echo $counter ?></td>
                             <td><?php echo $row['name'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
                             <td>
                                 <?php
                                 if(!empty($row['logo'])){
